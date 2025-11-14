@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reserva;
 use App\Models\Espacio;
+use App\Models\Solicitante;
 use Illuminate\Http\Request;
 
 class ReservaController extends Controller
@@ -16,10 +17,13 @@ class ReservaController extends Controller
     }
 
     public function create()
-    {
-        $espacios = Espacio::all();
-        return view('reservas.create', compact('espacios'));
-    }
+{
+    $espacios = Espacio::all();
+    $solicitantes = Solicitante::all();
+
+    return view('reservas.create', compact('espacios', 'solicitantes'));
+}
+
 
     public function store(Request $request)
     {
@@ -39,12 +43,15 @@ class ReservaController extends Controller
     }
 
     public function edit(Reserva $reserva)
-    {
-        $espacios = Espacio::all();
-        return view('reservas.edit', compact('reserva', 'espacios'));
-    }
+{
+    $espacios = Espacio::all();
+    $solicitantes = Solicitante::all();
 
-public function update(Request $request, Reserva $reserva)
+    return view('reservas.edit', compact('reserva', 'espacios', 'solicitantes'));
+}
+
+
+    public function update(Request $request, Reserva $reserva)
 {
     $request->validate([
         'espacio_id'   => 'required|exists:espacios,id',

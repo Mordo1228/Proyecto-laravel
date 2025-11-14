@@ -15,4 +15,11 @@ class Reserva extends Model
     {
         return $this->belongsTo(Espacio::class);
     }
+
+    public function solicitanteRel()
+{
+    return $this->belongsTo(Solicitante::class, 'solicitante_id');
+}
+
+    
 }

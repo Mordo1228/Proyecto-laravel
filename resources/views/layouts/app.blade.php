@@ -10,6 +10,7 @@
 <nav class="mb-4">
     <a href="{{ route('espacios.index') }}" class="btn btn-primary">Espacios</a>
     <a href="{{ route('reservas.index') }}" class="btn btn-secondary">Reservas</a>
+    <a href="{{ route('solicitantes.index') }}" class="btn btn-info">Solicitantes</a>
 </nav>
 
 @if(session('success'))

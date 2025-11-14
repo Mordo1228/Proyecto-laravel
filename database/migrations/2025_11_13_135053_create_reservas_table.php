@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reservas', function (Blueprint $table) {
             $table->id();
-        $table->foreignId('espacio_id')->constrained('espacios')->onDelete('cascade');
+        $table->foreignId('espacio_id')->constrained('espacios')->restrictOnDelete();
         $table->string('solicitante');
         $table->date('fecha');
         $table->time('hora_inicio');
